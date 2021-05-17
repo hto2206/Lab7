@@ -20,7 +20,7 @@ router.setState = function() {
       document.querySelector("h1").innerHTML = 'Journal Entries';
     }
   });
-  
+
   document.querySelector("h1").addEventListener('click', () => {
     history.pushState({state: "home"}, '', '/');
     document.body.setAttribute("class", "");
