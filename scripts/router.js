@@ -7,7 +7,10 @@ export const router = {};
  */
 router.setState = function() {
   window.addEventListener("popstate", event => {
-    if(event.state.state == "home"){
+    if(event.state.state == "null"){
+      document.body.setAttribute("class", "");
+      document.querySelector("h1").innerHTML = 'Journal Entries';
+    } else if(event.state.state == "home"){
       document.body.setAttribute("class", "");
       document.querySelector("h1").innerHTML = 'Journal Entries';
     } else if(event.state.state == "settings"){
@@ -15,10 +18,7 @@ router.setState = function() {
       document.querySelector("h1").innerHTML = 'Settings';
     } else if (event.state.state == "single-entry"){
       single_entry(event.state);
-    } else {
-      document.body.setAttribute("class", "");
-      document.querySelector("h1").innerHTML = 'Journal Entries';
-    }
+    } 
   });
 
   document.querySelector("h1").addEventListener('click', () => {
